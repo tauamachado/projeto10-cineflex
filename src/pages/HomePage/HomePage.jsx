@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MovieContainer from "./MovieContainer";
 
-
-
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
 
