@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ReactLoading from 'react-loading';
 import styled from "styled-components";
-import MovieContainer from "./MovieContainer";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchMovies();
@@ -16,6 +18,7 @@ export default function HomePage() {
         "https://mock-api.driven.com.br/api/v8/cineflex/movies"
       );
       setMovies(response.data);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching movies:", error);
     }
@@ -25,9 +28,21 @@ export default function HomePage() {
     <PageContainer>
       <p>Selecione o filme</p>
       <ListContainer>
-        {movies.map((movie) => (
-          <MovieContainer key={movie.id} image={movie.posterURL} />
-        ))}
+        {isLoading ? (
+          <LoadingContainer>
+            <ReactLoading type="spinningBubbles" color="#C3CFD9" height={100} width={100} />
+          </LoadingContainer>
+        ) : (
+          movies.map((movie) => (
+            <Link key={movie.id} to={`/sessoes/${movie.id}`}>
+              <MovieContainer>
+                <div>
+                  <img src={movie.posterURL} alt={movie.title} />
+                </div>
+              </MovieContainer>
+            </Link>
+          ))
+        )}
       </ListContainer>
     </PageContainer>
   );
@@ -51,4 +66,28 @@ const ListContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   padding: 10px;
+`;
+
+const MovieContainer = styled.div`
+  width: 145px;
+  height: 210px;
+  box-shadow: 0px 2px 4px 2px #0000001A;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+
+  img {
+    width: 130px;
+    height: 190px;
+  }
+`;
+
+const LoadingContainer = styled.div`
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
