@@ -50,16 +50,48 @@ export const CaptionItem = styled.div`
 `
 
 export const Form = styled.form`
-    width: calc(100vw - 40px); 
+    margin-top: 33px;
+    width: 327px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    align-items: flex-start;
-    margin: 20px 0;
+    font-family: 'Roboto', sans-serif;
+    p {
     font-size: 18px;
+    color: #293845;
+    margin-top: 12px;
+    }
     button {
-        align-self: center;
+        margin-top: 50px;
+        margin-bottom: 137px;
+	    width: 225px;
+	    height: 42px;
+	    border: none;
+	    border-radius: 3px;
+	    background-color: #e8833a;
+	    color: #ffffff;
+	    font-size: 18px;
     }
     input {
-        width: calc(100vw - 60px);
+        height: 51px;
+        border: 1px solid #D5D5D5;
+        border-radius: 3px;
+        padding-left: 18px;
+        font-size: 18px;
+        &::placeholder {
+          font-style: italic;
+          color: #AFAFAF;
+        }
     }
+    label {
+        margin-top: 33px;
+        width: 327px;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
 `
+
+  

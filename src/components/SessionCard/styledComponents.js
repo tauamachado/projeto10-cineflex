@@ -15,8 +15,16 @@ export const ButtonsContainer = styled.div`
     flex-direction: row;
     margin: 20px 0;
     button {
-        margin-right: 20px;
-    }
+		font-family: 'Roboto', sans-serif;
+		margin-right: 8px;
+		width: 83px;
+		height: 43px;
+		background-color: #e8833a;
+		border: none;
+		border-radius: 3px;
+		color: #ffffff;
+		font-size: 18px;
+	}
     a {
         text-decoration: none;
     }

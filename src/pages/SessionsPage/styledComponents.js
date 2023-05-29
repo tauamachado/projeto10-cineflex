@@ -70,4 +70,3 @@ export const seatColors = {
     unavailable: '#FF0000',
     selected: '#0000FF'
   };
-  

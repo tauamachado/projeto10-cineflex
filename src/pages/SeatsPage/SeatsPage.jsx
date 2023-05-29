@@ -10,7 +10,7 @@ import {
   CaptionCircle,
   CaptionContainer,
   CaptionItem
-} from "./styledComponents";
+} from "./styledComponents.js";
 import { BASE_URL } from "../../constants/urls";
 
 export default function SeatsPage({ setSuccessInfo }) {
@@ -148,11 +148,11 @@ export default function SeatsPage({ setSuccessInfo }) {
               onChange={handleForm}
               required
             />
-          </div>
-        ))}
+        </div>
+      ))}
 
-        <button data-test="book-seat-btn" type="submit">Reservar Assento(s)</button>
-      </Form>
+  <button data-test="book-seat-btn" type="submit">Reservar Assento(s)</button>
+</Form>
 
       <Footer
         data-test="footer"
