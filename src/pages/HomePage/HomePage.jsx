@@ -15,6 +15,7 @@ export default function HomePage() {
       .catch((err) => console.log(err.response.data));
   }, []);
 
+  // Tetei de algumas maneiras implementar react-loading aqui e falhei miseravelmente...
   if (movies === undefined) {
     return <div>Carregando...</div>;
   }
